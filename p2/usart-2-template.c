@@ -12,37 +12,47 @@
 void init_uart(void)
 {  /* See chapter 12.3 PIC16F886 manual (table 12-5) */
 
-  TXSTAbits.BRGH = ;
-  BAUDCTLbits.BRG16 = ;
+  TXSTAbits.BRGH = 0;
+  BAUDCTLbits.BRG16 = 0;
 
   // SPBRGH:SPBRG = 
-  SPBRGH = ;
-  SPBRG = ;  // 9600 baud rate with 20MHz Clock
+  SPBRGH = 0;
+  SPBRG = 32;  // 9600 baud rate with 20MHz Clock
   
-  TXSTAbits.SYNC = ; /* Asynchronous */
-  TXSTAbits.TX9 = ; /* TX 8 data bit */
-  RCSTAbits.RX9 = ; /* RX 8 data bit */
+  TXSTAbits.SYNC = 0; /* Asynchronous */
+  TXSTAbits.TX9 = 0; /* TX 8 data bit */
+  RCSTAbits.RX9 = 0; /* RX 8 data bit */
 
-  PIE1bits.TXIE = ; /* Disable TX interrupt */
-  PIE1bits.RCIE = ; /* Disable RX interrupt */
+// Distinto porque es asin
+  PIE1bits.TXIE = 0; /* Disable TX interrupt */
+  //PIE1bits.RCIE = ; /* Disable RX interrupt */
 
-  RCSTAbits.SPEN = ; /* Serial port enable */
+  RCSTAbits.SPEN = 1; /* Serial port enable */
 
-  TXSTAbits.TXEN = ; /* Reset transmitter */
-  TXSTAbits.TXEN = ; /* Enable transmitter */
+// Cambiar
+  TXSTAbits.TXEN = 0; /* Reset transmitter */
+  //TXSTAbits.TXEN = ; /* Enable transmitter */
   
  }
 
 /* It is needed for printf */
 void putch(char c)
 { 
-  
+  while(!TXIF){
+    continue;
+  }
+   TXREG = c;
  } 
 
 void main(void)
-{ OSCCON = 0b00001000; // External cristal
+{ 
+  char a = 'a';
+  OSCCON = 0b00001000; // External cristal
   init_uart();
 
+  INTCONbits.PEIE =1;
+  INTCONbits.GIE =1;
+
   while(1)
-    printf("Hola\r\n");
+    putch(a);
  }
