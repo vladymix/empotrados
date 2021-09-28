@@ -22,10 +22,9 @@ void main(void)
   TRISA = 0; 	// Configure port A as output
   TRISB = 0;
 
-  init_t0
+  init_t0;
   
-  while(1)
-  {   } 
+  while(1){   } 
 }
 void init_t0()
 {
