@@ -1,4 +1,5 @@
 #include <xc.h>
+#include <stdio.h>
 // See /opt/microchip/xc8/v{ver}/docs/chips/16f886.html
 // for details on #pragma config
 
