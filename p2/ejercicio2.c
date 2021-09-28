@@ -51,5 +51,5 @@ void main(void)
   INTCONbits.GIE=1;
 
   while(1)
-      putch(a);
+      printf("hola\n");
  }
