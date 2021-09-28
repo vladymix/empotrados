@@ -22,7 +22,7 @@ int numInterruptT0=0;
 
 void interrupt t0int (void)
 {
-    TMR0 =157;
+    TMR0 = 157;
     numInterruptT0++;
     if(numInterruptT0>=199){
         x++;
@@ -53,18 +53,9 @@ void main (void)
   TRISB = 0;
 
   init_t0();
-
-  INTCONbits.INTE=1;
+  
   INTCONbits.GIE=1;
   
-
-  /*
-   while(1)
-  { PORTB = x;
-    x += 1;
-    __delay_us(4998);
-   }
-   */
   while(1){
   }
   
