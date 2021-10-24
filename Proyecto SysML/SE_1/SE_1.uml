@@ -64,7 +64,13 @@
       <ownedRule xmi:type="uml:Constraint" xmi:id="_GETqsDT-Eey4F4xcNF-OlQ" name="Función transformacion Hume.">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_GEU40DT-Eey4F4xcNF-OlQ" name="constraintSpec">
           <language>Natural language</language>
-          <body>Ha = .....</body>
+          <body>Sensor RH = (Vout-0.16)/0.031</body>
+        </specification>
+      </ownedRule>
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_gznwgDT_Eey4F4xcNF-OlQ" name="Función Compensar Humedad Temp.">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_gzoXkDT_Eey4F4xcNF-OlQ" name="constraintSpec">
+          <language>Natural language</language>
+          <body>RH = (Sensor RH)/(1.0546 – 0.00216T), T in ºC</body>
         </specification>
       </ownedRule>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_AgUmEDTwEey4F4xcNF-OlQ" name="hardware 1" type="_HWmToDTrEey4F4xcNF-OlQ" aggregation="shared" association="_AgSJ0DTwEey4F4xcNF-OlQ">
