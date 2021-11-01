@@ -10,7 +10,7 @@ void init_t0();
 void __interrupt() t0int (void);
 
 int numInterruptT0=0;
-int puedoSeguir=0;
+int dataADReady=0;
 
 
 void __interrupt() t0int (void) //Interrupcion que saca el contenido por puertoB cada 500ns
@@ -26,8 +26,9 @@ void __interrupt() t0int (void) //Interrupcion que saca el contenido por puertoB
         }
         INTCONbits.T0IF=0; //Resetea la interrupción
     }
-    else if (PIR1bits.ADIF){
-        puedoSeguir=1;
+	
+    if (PIR1bits.ADIF){
+        dataADReady=1;
         PIR1bits.ADIF=0;    //Flag de interrupción CAD a 0
     }
 }
@@ -41,7 +42,7 @@ void init_CAD(){
     //Configuración ADCON1
     ADCON1bits.ADFM=1;     //Justificado a la derecha.
     ADCON1bits.VCFG1=0;     //Ground como Vref-
-    ADCON1bits.VCFG0=1;     //Vdd como Vref+
+    ADCON1bits.VCFG0=0;     //Vdd como Vref+
     //Configuración ADCON0
     ADCON0bits.ADCS=0b10;   //Para configurar reloj a Fosc/32 (20Mhz, 1.6uS) PAGINA 10 ESPECIFICO
     ADCON0bits.CHS=0b0000;  //Selecciona entrada AN0
@@ -60,19 +61,14 @@ void init_t0()
 
 int main() {
     PIE1bits.ADIE=1;    //Interrupcion CAD habilitada
-    INTCONbits.PEIE=1;  //Interrupcion de periféricos habilitada        PREGUNTAR!!!!!!!!!!!!!!!!!
+    INTCONbits.PEIE=0;  //Interrupcion de periféricos habilitada        PREGUNTAR!!!!!!!!!!!!!!!!!
     INTCONbits.GIE=1;   //Interrupciones habilitadas
     init_CAD(); //Configuracion de puertos y encendido del CAD
     init_t0();
     while(1){
-    
-        //while(!PIR1bits.ADIF) {}  //Esperamos hasta que llegue interrupción de conversor A/D
-    
-        //while(!INTCONbits.T0IF){}                       //Espera de 500ms
-    
-        while(puedoSeguir){
+        while(dataADReady){
              PORTB=ADRESL;
-             puedoSeguir=0;
+             dataADReady=0;
         }
     }
     

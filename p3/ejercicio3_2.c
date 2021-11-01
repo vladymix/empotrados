@@ -1,3 +1,9 @@
+/* 
+ * File:   ejercicio1.c
+ * Author: Grupo 4
+ *
+ * Created on 4 de octubre de 2021, 13:28
+ */
 #include <xc.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -28,7 +34,7 @@ void __interrupt() t0int (void) //Interrupcion que saca el contenido por puertoB
         }
         INTCONbits.T0IF=0; //Resetea la interrupción
     }
-    else if (PIR1bits.ADIF){
+    if (PIR1bits.ADIF){
         puedoSeguir=1;
         PIR1bits.ADIF=0;    //Flag de interrupción CAD a 0
     }
@@ -43,7 +49,7 @@ void init_CAD(){
     //Configuración ADCON1
     ADCON1bits.ADFM=1;     //Justificado a la derecha.
     ADCON1bits.VCFG1=0;     //Ground como Vref-
-    ADCON1bits.VCFG0=1;     //Vdd como Vref+
+    ADCON1bits.VCFG0=0;     //Vdd como Vref+    
     //Configuración ADCON0
     ADCON0bits.ADCS=0b10;   //Para configurar reloj a Fosc/32 (20Mhz, 1.6uS) PAGINA 10 ESPECIFICO
     ADCON0bits.CHS=0b0000;  //Selecciona entrada AN0
@@ -67,7 +73,11 @@ void init_uart(void)
   // SPBRGH:SPBRG =
   SPBRGH = 0;
   SPBRG = 32;  // 9600 baud rate with 20MHz Clock . Actual rate = 9470. Err= -1.36%
-
+  
+  //Puertos 6 7 fisicos
+  TRISCbits.TRISC6 = 1;
+  TRISCbits.TRISC7 = 0;
+    
   TXSTAbits.SYNC = 0; /* Asynchronous */
   TXSTAbits.TX9 = 0; /* TX 8 data bit  Para transmision de 8 bits*/
   // RCSTAbits.RX9 = 0; /* RX 8 data bit */
@@ -83,6 +93,15 @@ void init_uart(void)
 
 void putch(char c)
 {
+
+    // To real hardware
+   /*
+    while (!TRMT){
+        continue;
+    }
+    */
+
+    // To simulator
     while ( ! TXIF){
         continue;
     }
@@ -91,7 +110,7 @@ void putch(char c)
 
 int main() {
     PIE1bits.ADIE=1;    //Interrupcion CAD habilitada
-    INTCONbits.PEIE=1;  //Interrupcion de periféricos habilitada        PREGUNTAR!!!!!!!!!!!!!!!!!
+    INTCONbits.PEIE=0;  //Interrupcion de periféricos habilitada        PREGUNTAR!!!!!!!!!!!!!!!!!
     INTCONbits.GIE=1;   //Interrupciones habilitadas
     init_CAD(); //Configuracion de puertos y encendido del CAD
     init_t0();
@@ -104,9 +123,10 @@ int main() {
         while(puedoSeguir){
              PORTB=ADRESL;
              dato=ADRESH;
-             dato<<=6; //Cambio de 8 a 6
+             dato<<=8; //Cambio de 8 a 6
              dato|=ADRESL;
-             printf("%d\n",&dato);
+            
+             printf("%d\n",dato);
              puedoSeguir=0;
         }
     }
