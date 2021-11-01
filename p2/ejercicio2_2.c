@@ -41,16 +41,16 @@ void __interrupt() t0int (void) //Interrupcion que saca el contenido por puertoB
 }
 
 void init_CAD(){
-    //ConfiguraciÃ³n de puerto de entrada
+    //Configuración de puerto de entrada
     TRISA=1;    //Puerto A como entrada. Consultar a Norberto
     ANSEL=1;       //Establece entrada analogica. Idem
     //Puerto B de salida
     TRISB=0;
-    //ConfiguraciÃ³n ADCON1
+    //Configuración ADCON1
     ADCON1bits.ADFM=1;     //Justificado a la derecha.
     ADCON1bits.VCFG1=0;     //Ground como Vref-
     ADCON1bits.VCFG0=1;     //Vdd como Vref+
-    //ConfiguraciÃ³n ADCON0
+    //Configuración ADCON0
     ADCON0bits.ADCS=0b10;   //Para configurar reloj a Fosc/32 (20Mhz, 1.6uS) PAGINA 10 ESPECIFICO
     ADCON0bits.CHS=0b0000;  //Selecciona entrada AN0
     ADCON0bits.ADON=1;      //Enciende conversor
@@ -97,13 +97,13 @@ void putch(char c)
 
 int main() {
     PIE1bits.ADIE=1;    //Interrupcion CAD habilitada
-    INTCONbits.PEIE=1;  //Interrupcion de perifÃ©ricos habilitada        PREGUNTAR!!!!!!!!!!!!!!!!!
+    INTCONbits.PEIE=1;  //Interrupcion de periféricos habilitada  
     INTCONbits.GIE=1;   //Interrupciones habilitadas
     init_CAD(); //Configuracion de puertos y encendido del CAD
     init_t0();
     init_uart();
     while(1){
-        //while(!PIR1bits.ADIF) {}  //Esperamos hasta que llegue interrupciÃ³n de conversor A/D
+        //while(!PIR1bits.ADIF) {}  //Esperamos hasta que llegue interrupción de conversor A/D
    
         //while(!INTCONbits.T0IF){}                       //Espera de 500ms
    
