@@ -5,9 +5,14 @@
 #pragma config FCMEN = OFF, MCLRE = ON, WDTE = OFF, CP = OFF, LVP = OFF
 #pragma config PWRTE = ON, BOR4V = BOR21V, WRT = OFF
 
-void init_CAD();
+
 void init_t0();
-void __interrupt() t0int (void);
+
+void init_t2();
+void init_PWM1();
+void setdutyCycle1(int dc);
+
+void __interrupt() interruption (void);
 
 int numInterruptT0=0;
 int dataADReady=0;
