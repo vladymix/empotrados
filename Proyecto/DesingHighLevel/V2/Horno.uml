@@ -195,11 +195,13 @@ Humedad = HSens / (1.0546 - 0.00216 * Temp)</body>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_S1r04EepEeyo9tNlqrVFOw" name="Informes" classifierBehavior="_JEdbQEryEeyo9tNlqrVFOw">
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_JEdbQEryEeyo9tNlqrVFOw" name="Diagrama de estados">
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_URu3EEsVEeyo9tNlqrVFOw" name="Informes" submachineState="_UAtVUEsREeyo9tNlqrVFOw"/>
         <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_dKYD0Er2Eeyo9tNlqrVFOw" name="Toma de corriente" kind="entryPoint"/>
         <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_KI550Er9Eeyo9tNlqrVFOw" name="Establece Consigna" kind="exitPoint"/>
         <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_RK_cgEr9Eeyo9tNlqrVFOw" name="Potenc. > 3V" kind="entryPoint"/>
         <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_RE0toEr-Eeyo9tNlqrVFOw" name="Encendido/Apagado" kind="entryPoint"/>
         <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_PczfkEsBEeyo9tNlqrVFOw" name="Encendido/Apagado Entrada" kind="entryPoint"/>
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_QOeH4EsTEeyo9tNlqrVFOw" name="Funcionamiento" kind="exitPoint"/>
         <region xmi:type="uml:Region" xmi:id="_NUE2UEryEeyo9tNlqrVFOw" name="Region1">
           <transition xmi:type="uml:Transition" xmi:id="_RmRZYEr0Eeyo9tNlqrVFOw" name="Conexión a corriente" source="_J2I6YErzEeyo9tNlqrVFOw" target="_ydkRcEryEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_m00v4Er2Eeyo9tNlqrVFOw" source="_dKYD0Er2Eeyo9tNlqrVFOw" target="_VscSoEr2Eeyo9tNlqrVFOw"/>
@@ -217,7 +219,6 @@ Humedad = HSens / (1.0546 - 0.00216 * Temp)</body>
           <transition xmi:type="uml:Transition" xmi:id="_hv0qUEsJEeyo9tNlqrVFOw" source="_2t3nAEsIEeyo9tNlqrVFOw" target="_-rfk4EsIEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_iqdGkEsJEeyo9tNlqrVFOw" source="_-rfk4EsIEeyo9tNlqrVFOw" target="_QlK8MEsJEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_kCnzYEsJEeyo9tNlqrVFOw" source="_QlK8MEsJEeyo9tNlqrVFOw" target="_Sk6mYEsJEeyo9tNlqrVFOw"/>
-          <transition xmi:type="uml:Transition" xmi:id="_nv_dAEsJEeyo9tNlqrVFOw" source="_Sk6mYEsJEeyo9tNlqrVFOw" target="_UPlYcEsJEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_SUa20EsKEeyo9tNlqrVFOw" name="t=5s" source="_NoO0gEsKEeyo9tNlqrVFOw" target="_NoO0gEsKEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_24cNYEsKEeyo9tNlqrVFOw" source="_KWpooEsCEeyo9tNlqrVFOw" target="_VpC_YEsBEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_9SffsEsKEeyo9tNlqrVFOw" source="_UPlYcEsJEeyo9tNlqrVFOw" target="_-rfk4EsIEeyo9tNlqrVFOw"/>
@@ -230,9 +231,15 @@ Humedad = HSens / (1.0546 - 0.00216 * Temp)</body>
           <transition xmi:type="uml:Transition" xmi:id="_kpdXoEsOEeyo9tNlqrVFOw" source="_awJJIEsOEeyo9tNlqrVFOw" target="_dzBrUEsOEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_xcCSQEsOEeyo9tNlqrVFOw" source="_dzBrUEsOEeyo9tNlqrVFOw" target="_tJJgwEsOEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_zA4wMEsOEeyo9tNlqrVFOw" name="No" source="_tJJgwEsOEeyo9tNlqrVFOw" target="_J5R5sEsOEeyo9tNlqrVFOw"/>
-          <transition xmi:type="uml:Transition" xmi:id="_-gCUEEsOEeyo9tNlqrVFOw" source="_tJJgwEsOEeyo9tNlqrVFOw" target="_67TCAEsOEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_-gCUEEsOEeyo9tNlqrVFOw" name="Si" source="_tJJgwEsOEeyo9tNlqrVFOw" target="_67TCAEsOEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_BEgb8EsPEeyo9tNlqrVFOw" source="_67TCAEsOEeyo9tNlqrVFOw" target="_tJJgwEsOEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_HIn6gEsPEeyo9tNlqrVFOw" source="_Lfu6IEsOEeyo9tNlqrVFOw" target="_J5R5sEsOEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_lb29kEsREeyo9tNlqrVFOw" source="_ydkRcEryEeyo9tNlqrVFOw" target="_D9w2IEsREeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_nu13YEsSEeyo9tNlqrVFOw" source="_Sk6mYEsJEeyo9tNlqrVFOw" target="_dLFkwEsSEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_oXGKMEsSEeyo9tNlqrVFOw" source="_dLFkwEsSEeyo9tNlqrVFOw" target="_UPlYcEsJEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_FIRPgEsTEeyo9tNlqrVFOw" source="_B1-pEEr3Eeyo9tNlqrVFOw" target="_-AOOwEsSEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_SacQMEsTEeyo9tNlqrVFOw" name="No" source="_-AOOwEsSEeyo9tNlqrVFOw" target="_QOeH4EsTEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_c9R80EsTEeyo9tNlqrVFOw" name="Si" source="_-AOOwEsSEeyo9tNlqrVFOw" target="_XiLmEEsTEeyo9tNlqrVFOw"/>
           <subvertex xmi:type="uml:State" xmi:id="_ZndTgEryEeyo9tNlqrVFOw" name="State1"/>
           <subvertex xmi:type="uml:State" xmi:id="_ydkRcEryEeyo9tNlqrVFOw" name="Encendido/Apagado" submachine="_daLhwErzEeyo9tNlqrVFOw">
             <doActivity xmi:type="uml:StateMachine" xmi:id="_daLhwErzEeyo9tNlqrVFOw" name="Encendido/Apagado" submachineState="_ydkRcEryEeyo9tNlqrVFOw"/>
@@ -266,10 +273,10 @@ Humedad = HSens / (1.0546 - 0.00216 * Temp)</body>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_aSJNQEsIEeyo9tNlqrVFOw" name=""/>
           <subvertex xmi:type="uml:FinalState" xmi:id="_hPINgEsIEeyo9tNlqrVFOw" name=""/>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_2t3nAEsIEeyo9tNlqrVFOw" name=""/>
-          <subvertex xmi:type="uml:State" xmi:id="_-rfk4EsIEeyo9tNlqrVFOw" name="Leer Temp Ext"/>
-          <subvertex xmi:type="uml:State" xmi:id="_QlK8MEsJEeyo9tNlqrVFOw" name="Leer Temp Int"/>
-          <subvertex xmi:type="uml:State" xmi:id="_Sk6mYEsJEeyo9tNlqrVFOw" name="Leer Humedad"/>
-          <subvertex xmi:type="uml:State" xmi:id="_UPlYcEsJEeyo9tNlqrVFOw" name="Leer Luminosidad"/>
+          <subvertex xmi:type="uml:State" xmi:id="_-rfk4EsIEeyo9tNlqrVFOw" name="Obtener Temp Ext"/>
+          <subvertex xmi:type="uml:State" xmi:id="_QlK8MEsJEeyo9tNlqrVFOw" name="Obtener Temp Int"/>
+          <subvertex xmi:type="uml:State" xmi:id="_Sk6mYEsJEeyo9tNlqrVFOw" name="Obtener Humedad"/>
+          <subvertex xmi:type="uml:State" xmi:id="_UPlYcEsJEeyo9tNlqrVFOw" name="Obtener Luminosidad"/>
           <subvertex xmi:type="uml:State" xmi:id="_NoO0gEsKEeyo9tNlqrVFOw" name="Monitorización"/>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_Qi8csEsLEeyo9tNlqrVFOw" name=""/>
           <subvertex xmi:type="uml:State" xmi:id="_uh6x4EsLEeyo9tNlqrVFOw" name="Calculo Valor Dial 4 ultimas lecturas"/>
@@ -280,8 +287,35 @@ Humedad = HSens / (1.0546 - 0.00216 * Temp)</body>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_Lfu6IEsOEeyo9tNlqrVFOw" name=""/>
           <subvertex xmi:type="uml:State" xmi:id="_awJJIEsOEeyo9tNlqrVFOw" name="Encender Ventilador PWM"/>
           <subvertex xmi:type="uml:State" xmi:id="_dzBrUEsOEeyo9tNlqrVFOw" name="Controlar Polaridad Peltier"/>
-          <subvertex xmi:type="uml:Pseudostate" xmi:id="_tJJgwEsOEeyo9tNlqrVFOw" name="Potenc. > 3v " kind="choice"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_tJJgwEsOEeyo9tNlqrVFOw" name="Dial > 3v " kind="choice"/>
           <subvertex xmi:type="uml:State" xmi:id="_67TCAEsOEeyo9tNlqrVFOw" name="Apagado Sistema de Control Temp"/>
+          <subvertex xmi:type="uml:State" xmi:id="_dLFkwEsSEeyo9tNlqrVFOw" name="Obtener valor Dial"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_-AOOwEsSEeyo9tNlqrVFOw" name="Dial==0" kind="choice"/>
+          <subvertex xmi:type="uml:FinalState" xmi:id="_XiLmEEsTEeyo9tNlqrVFOw" name="Sistema Apagado"/>
+        </region>
+        <region xmi:type="uml:Region" xmi:id="_pRGmQEsQEeyo9tNlqrVFOw" name="Region7">
+          <subvertex xmi:type="uml:State" xmi:id="_w8uOIEsQEeyo9tNlqrVFOw" name="Funcionamiento">
+            <region xmi:type="uml:Region" xmi:id="_Ii-GsksREeyo9tNlqrVFOw" name="Region1">
+              <transition xmi:type="uml:Transition" xmi:id="_eWtf0EsREeyo9tNlqrVFOw" source="_D9w2IEsREeyo9tNlqrVFOw" target="_NIxNIEsREeyo9tNlqrVFOw"/>
+              <transition xmi:type="uml:Transition" xmi:id="_e7b9gEsREeyo9tNlqrVFOw" source="_D9w2IEsREeyo9tNlqrVFOw" target="_UAtVUEsREeyo9tNlqrVFOw"/>
+              <transition xmi:type="uml:Transition" xmi:id="_fce1EEsREeyo9tNlqrVFOw" source="_D9w2IEsREeyo9tNlqrVFOw" target="_X8o_YEsREeyo9tNlqrVFOw"/>
+              <transition xmi:type="uml:Transition" xmi:id="_hLI9AEsWEeyo9tNlqrVFOw" name="Dial==0" source="_NIxNIEsREeyo9tNlqrVFOw" target="_ydkRcEryEeyo9tNlqrVFOw"/>
+              <transition xmi:type="uml:Transition" xmi:id="_RzPJcEsXEeyo9tNlqrVFOw" source="_D9w2IEsREeyo9tNlqrVFOw" target="_HWy_wEsXEeyo9tNlqrVFOw"/>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_D9w2IEsREeyo9tNlqrVFOw" name="" kind="junction"/>
+              <subvertex xmi:type="uml:State" xmi:id="_NIxNIEsREeyo9tNlqrVFOw" name="Monitorización">
+                <doActivity xmi:type="uml:StateMachine" xmi:id="_1s3xIEsVEeyo9tNlqrVFOw" name="Monitorización"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_UAtVUEsREeyo9tNlqrVFOw" name="Informes" submachine="_URu3EEsVEeyo9tNlqrVFOw">
+                <doActivity xmi:type="uml:StateMachine" xmi:id="_axX0AEsVEeyo9tNlqrVFOw" name="Informes"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_X8o_YEsREeyo9tNlqrVFOw" name="Control de Temperatura">
+                <doActivity xmi:type="uml:StateMachine" xmi:id="_YkgeYEsWEeyo9tNlqrVFOw" name="Control de Temperatura"/>
+              </subvertex>
+              <subvertex xmi:type="uml:State" xmi:id="_HWy_wEsXEeyo9tNlqrVFOw" name="Establecer Consigna">
+                <doActivity xmi:type="uml:StateMachine" xmi:id="_PgXu8EsXEeyo9tNlqrVFOw" name="Establecer Consigna"/>
+              </subvertex>
+            </region>
+          </subvertex>
         </region>
       </ownedBehavior>
     </packagedElement>
