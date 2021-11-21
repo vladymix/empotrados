@@ -193,7 +193,32 @@ Humedad = HSens / (1.0546 - 0.00216 * Temp)</body>
       <ownedEnd xmi:type="uml:Property" xmi:id="_QAvS8kenEeyo9tNlqrVFOw" name="hardware 2" type="_jt3iAEZAEeyo9tNlqrVFOw" aggregation="composite" association="_QAur4EenEeyo9tNlqrVFOw"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_QAv6AEenEeyo9tNlqrVFOw" name="horno de bacterias" type="_e3Up0EZAEeyo9tNlqrVFOw" association="_QAur4EenEeyo9tNlqrVFOw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_S1r04EepEeyo9tNlqrVFOw" name="Informes"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_S1r04EepEeyo9tNlqrVFOw" name="Informes" classifierBehavior="_JEdbQEryEeyo9tNlqrVFOw">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_JEdbQEryEeyo9tNlqrVFOw" name="StateMachine1">
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_dKYD0Er2Eeyo9tNlqrVFOw" name="Toma de corriente" kind="entryPoint"/>
+        <region xmi:type="uml:Region" xmi:id="_NUE2UEryEeyo9tNlqrVFOw" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_RmRZYEr0Eeyo9tNlqrVFOw" name="Conexión a corriente" source="_J2I6YErzEeyo9tNlqrVFOw" target="_ydkRcEryEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_m00v4Er2Eeyo9tNlqrVFOw" source="_dKYD0Er2Eeyo9tNlqrVFOw" target="_VscSoEr2Eeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_vBOJkEr2Eeyo9tNlqrVFOw" source="_VscSoEr2Eeyo9tNlqrVFOw" target="_qKgSQEr2Eeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_Zc_WoEr3Eeyo9tNlqrVFOw" source="_qKgSQEr2Eeyo9tNlqrVFOw" target="_B1-pEEr3Eeyo9tNlqrVFOw"/>
+          <subvertex xmi:type="uml:State" xmi:id="_ZndTgEryEeyo9tNlqrVFOw" name="State1"/>
+          <subvertex xmi:type="uml:State" xmi:id="_ydkRcEryEeyo9tNlqrVFOw" name="Encendido/Apagado" submachine="_daLhwErzEeyo9tNlqrVFOw">
+            <doActivity xmi:type="uml:StateMachine" xmi:id="_daLhwErzEeyo9tNlqrVFOw" name="Encendido/Apagado" submachineState="_ydkRcEryEeyo9tNlqrVFOw"/>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_J2I6YErzEeyo9tNlqrVFOw" name="Inicio"/>
+          <subvertex xmi:type="uml:State" xmi:id="_VscSoEr2Eeyo9tNlqrVFOw" name="Mensaje de Bienvenida">
+            <doActivity xmi:type="uml:FunctionBehavior" xmi:id="_ANOtIEr4Eeyo9tNlqrVFOw" name="Esperar 3 segundos"/>
+            <region xmi:type="uml:Region" xmi:id="_ZSAZMkr4Eeyo9tNlqrVFOw" name="Region2"/>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_qKgSQEr2Eeyo9tNlqrVFOw" name="Espera 3 Segundos"/>
+          <subvertex xmi:type="uml:State" xmi:id="_B1-pEEr3Eeyo9tNlqrVFOw" name="Inicialización del sistema">
+            <doActivity xmi:type="uml:FunctionBehavior" xmi:id="_mWj0oEr4Eeyo9tNlqrVFOw" name="Esperar 3 segundos"/>
+            <region xmi:type="uml:Region" xmi:id="_gf6KUUr4Eeyo9tNlqrVFOw" name="Region1"/>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_LRrHcEr3Eeyo9tNlqrVFOw" name="Secuencia de Apagado"/>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_WtFkQEepEeyo9tNlqrVFOw" name="Monitorización"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_Yn1ZsEepEeyo9tNlqrVFOw" name="Establece Consigna"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_b0NPEEepEeyo9tNlqrVFOw" name="Encendido/Apagado"/>
@@ -348,6 +373,12 @@ Humedad = HSens / (1.0546 - 0.00216 * Temp)</body>
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_0EADwEryEeyo9tNlqrVFOw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0EAq0EryEeyo9tNlqrVFOw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
     </profileApplication>
   </uml:Model>
   <Blocks:Block xmi:id="_e7bGsEZAEeyo9tNlqrVFOw" base_Class="_e3Up0EZAEeyo9tNlqrVFOw"/>
