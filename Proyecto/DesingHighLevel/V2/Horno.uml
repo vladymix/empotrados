@@ -194,28 +194,94 @@ Humedad = HSens / (1.0546 - 0.00216 * Temp)</body>
       <ownedEnd xmi:type="uml:Property" xmi:id="_QAv6AEenEeyo9tNlqrVFOw" name="horno de bacterias" type="_e3Up0EZAEeyo9tNlqrVFOw" association="_QAur4EenEeyo9tNlqrVFOw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_S1r04EepEeyo9tNlqrVFOw" name="Informes" classifierBehavior="_JEdbQEryEeyo9tNlqrVFOw">
-      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_JEdbQEryEeyo9tNlqrVFOw" name="StateMachine1">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_JEdbQEryEeyo9tNlqrVFOw" name="Diagrama de estados">
         <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_dKYD0Er2Eeyo9tNlqrVFOw" name="Toma de corriente" kind="entryPoint"/>
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_KI550Er9Eeyo9tNlqrVFOw" name="Establece Consigna" kind="exitPoint"/>
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_RK_cgEr9Eeyo9tNlqrVFOw" name="Potenc. > 3V" kind="entryPoint"/>
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_RE0toEr-Eeyo9tNlqrVFOw" name="Encendido/Apagado" kind="entryPoint"/>
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_PczfkEsBEeyo9tNlqrVFOw" name="Encendido/Apagado Entrada" kind="entryPoint"/>
         <region xmi:type="uml:Region" xmi:id="_NUE2UEryEeyo9tNlqrVFOw" name="Region1">
           <transition xmi:type="uml:Transition" xmi:id="_RmRZYEr0Eeyo9tNlqrVFOw" name="Conexión a corriente" source="_J2I6YErzEeyo9tNlqrVFOw" target="_ydkRcEryEeyo9tNlqrVFOw"/>
           <transition xmi:type="uml:Transition" xmi:id="_m00v4Er2Eeyo9tNlqrVFOw" source="_dKYD0Er2Eeyo9tNlqrVFOw" target="_VscSoEr2Eeyo9tNlqrVFOw"/>
-          <transition xmi:type="uml:Transition" xmi:id="_vBOJkEr2Eeyo9tNlqrVFOw" source="_VscSoEr2Eeyo9tNlqrVFOw" target="_qKgSQEr2Eeyo9tNlqrVFOw"/>
-          <transition xmi:type="uml:Transition" xmi:id="_Zc_WoEr3Eeyo9tNlqrVFOw" source="_qKgSQEr2Eeyo9tNlqrVFOw" target="_B1-pEEr3Eeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_pD9cwEr9Eeyo9tNlqrVFOw" source="_VscSoEr2Eeyo9tNlqrVFOw" target="_B1-pEEr3Eeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_g4X-kEsBEeyo9tNlqrVFOw" source="_PczfkEsBEeyo9tNlqrVFOw" target="_VpC_YEsBEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="__7DMcEsBEeyo9tNlqrVFOw" source="_mUaJcEsBEeyo9tNlqrVFOw" target="_63S-sEsBEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_iInpAEsCEeyo9tNlqrVFOw" name="No" source="_63S-sEsBEeyo9tNlqrVFOw" target="_KWpooEsCEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_qmz9UEsCEeyo9tNlqrVFOw" name="Si" source="_63S-sEsBEeyo9tNlqrVFOw" target="_Gxp34EsCEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_Rbd5wEsDEeyo9tNlqrVFOw" source="_Gxp34EsCEeyo9tNlqrVFOw" target="_CDjUkEsDEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_v9dxkEsFEeyo9tNlqrVFOw" source="_VpC_YEsBEeyo9tNlqrVFOw" target="_mUaJcEsBEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_q-C_UEsHEeyo9tNlqrVFOw" name="t=0,25s" source="___56cEsFEeyo9tNlqrVFOw" target="___56cEsFEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_JhTtUEsIEeyo9tNlqrVFOw" source="_FhK4sEsIEeyo9tNlqrVFOw" target="_VpC_YEsBEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_O33iUEsIEeyo9tNlqrVFOw" source="_CDjUkEsDEeyo9tNlqrVFOw" target="_-FIk8EsHEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_davV4EsIEeyo9tNlqrVFOw" source="_aSJNQEsIEeyo9tNlqrVFOw" target="_VscSoEr2Eeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_hv0qUEsJEeyo9tNlqrVFOw" source="_2t3nAEsIEeyo9tNlqrVFOw" target="_-rfk4EsIEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_iqdGkEsJEeyo9tNlqrVFOw" source="_-rfk4EsIEeyo9tNlqrVFOw" target="_QlK8MEsJEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kCnzYEsJEeyo9tNlqrVFOw" source="_QlK8MEsJEeyo9tNlqrVFOw" target="_Sk6mYEsJEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_nv_dAEsJEeyo9tNlqrVFOw" source="_Sk6mYEsJEeyo9tNlqrVFOw" target="_UPlYcEsJEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_SUa20EsKEeyo9tNlqrVFOw" name="t=5s" source="_NoO0gEsKEeyo9tNlqrVFOw" target="_NoO0gEsKEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_24cNYEsKEeyo9tNlqrVFOw" source="_KWpooEsCEeyo9tNlqrVFOw" target="_VpC_YEsBEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_9SffsEsKEeyo9tNlqrVFOw" source="_UPlYcEsJEeyo9tNlqrVFOw" target="_-rfk4EsIEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_33AR8EsLEeyo9tNlqrVFOw" source="_Qi8csEsLEeyo9tNlqrVFOw" target="_uh6x4EsLEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_JA7x4EsNEeyo9tNlqrVFOw" source="_uh6x4EsLEeyo9tNlqrVFOw" target="_-ClqcEsLEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_JkRIcEsNEeyo9tNlqrVFOw" source="_-ClqcEsLEeyo9tNlqrVFOw" target="_DZUekEsMEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_KBoZ4EsNEeyo9tNlqrVFOw" source="_DZUekEsMEeyo9tNlqrVFOw" target="_BnjwkEsNEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_Ky3pkEsNEeyo9tNlqrVFOw" source="_BnjwkEsNEeyo9tNlqrVFOw" target="_uh6x4EsLEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kFzQ8EsOEeyo9tNlqrVFOw" source="_J5R5sEsOEeyo9tNlqrVFOw" target="_awJJIEsOEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kpdXoEsOEeyo9tNlqrVFOw" source="_awJJIEsOEeyo9tNlqrVFOw" target="_dzBrUEsOEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_xcCSQEsOEeyo9tNlqrVFOw" source="_dzBrUEsOEeyo9tNlqrVFOw" target="_tJJgwEsOEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_zA4wMEsOEeyo9tNlqrVFOw" name="No" source="_tJJgwEsOEeyo9tNlqrVFOw" target="_J5R5sEsOEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_-gCUEEsOEeyo9tNlqrVFOw" source="_tJJgwEsOEeyo9tNlqrVFOw" target="_67TCAEsOEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_BEgb8EsPEeyo9tNlqrVFOw" source="_67TCAEsOEeyo9tNlqrVFOw" target="_tJJgwEsOEeyo9tNlqrVFOw"/>
+          <transition xmi:type="uml:Transition" xmi:id="_HIn6gEsPEeyo9tNlqrVFOw" source="_Lfu6IEsOEeyo9tNlqrVFOw" target="_J5R5sEsOEeyo9tNlqrVFOw"/>
           <subvertex xmi:type="uml:State" xmi:id="_ZndTgEryEeyo9tNlqrVFOw" name="State1"/>
           <subvertex xmi:type="uml:State" xmi:id="_ydkRcEryEeyo9tNlqrVFOw" name="Encendido/Apagado" submachine="_daLhwErzEeyo9tNlqrVFOw">
             <doActivity xmi:type="uml:StateMachine" xmi:id="_daLhwErzEeyo9tNlqrVFOw" name="Encendido/Apagado" submachineState="_ydkRcEryEeyo9tNlqrVFOw"/>
           </subvertex>
           <subvertex xmi:type="uml:Pseudostate" xmi:id="_J2I6YErzEeyo9tNlqrVFOw" name="Inicio"/>
-          <subvertex xmi:type="uml:State" xmi:id="_VscSoEr2Eeyo9tNlqrVFOw" name="Mensaje de Bienvenida">
-            <doActivity xmi:type="uml:FunctionBehavior" xmi:id="_ANOtIEr4Eeyo9tNlqrVFOw" name="Esperar 3 segundos"/>
-            <region xmi:type="uml:Region" xmi:id="_ZSAZMkr4Eeyo9tNlqrVFOw" name="Region2"/>
+          <subvertex xmi:type="uml:State" xmi:id="_VscSoEr2Eeyo9tNlqrVFOw" name="Secuencia de Encendido">
+            <region xmi:type="uml:Region" xmi:id="_ZSAZMkr4Eeyo9tNlqrVFOw" name="Region2">
+              <subvertex xmi:type="uml:State" xmi:id="_h9lz0Er5Eeyo9tNlqrVFOw" name="Display de mensaje de Bienvenida"/>
+              <subvertex xmi:type="uml:State" xmi:id="_o_vA4Er5Eeyo9tNlqrVFOw" name="Espera 3 Segundos"/>
+            </region>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_qKgSQEr2Eeyo9tNlqrVFOw" name="Espera 3 Segundos"/>
           <subvertex xmi:type="uml:State" xmi:id="_B1-pEEr3Eeyo9tNlqrVFOw" name="Inicialización del sistema">
-            <doActivity xmi:type="uml:FunctionBehavior" xmi:id="_mWj0oEr4Eeyo9tNlqrVFOw" name="Esperar 3 segundos"/>
-            <region xmi:type="uml:Region" xmi:id="_gf6KUUr4Eeyo9tNlqrVFOw" name="Region1"/>
+            <region xmi:type="uml:Region" xmi:id="_gf6KUUr4Eeyo9tNlqrVFOw" name="Region1">
+              <subvertex xmi:type="uml:State" xmi:id="_rauDUEr-Eeyo9tNlqrVFOw" name="Init USART"/>
+              <subvertex xmi:type="uml:State" xmi:id="_3rreoEr-Eeyo9tNlqrVFOw" name="Init Timer"/>
+              <subvertex xmi:type="uml:State" xmi:id="_TEAhsEr_Eeyo9tNlqrVFOw" name="Init PWM"/>
+              <subvertex xmi:type="uml:State" xmi:id="_YVXtoEr_Eeyo9tNlqrVFOw" name="Init LED"/>
+              <subvertex xmi:type="uml:State" xmi:id="_t58pYEr_Eeyo9tNlqrVFOw" name="Init Peltier"/>
+              <subvertex xmi:type="uml:State" xmi:id="_x6ixAEr_Eeyo9tNlqrVFOw" name="Init CAD"/>
+            </region>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_LRrHcEr3Eeyo9tNlqrVFOw" name="Secuencia de Apagado"/>
+          <subvertex xmi:type="uml:State" xmi:id="_VpC_YEsBEeyo9tNlqrVFOw" name="Comprobación Dial Temp"/>
+          <subvertex xmi:type="uml:State" xmi:id="_mUaJcEsBEeyo9tNlqrVFOw" name="Guardar valor provisional consigna"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_63S-sEsBEeyo9tNlqrVFOw" name="Valor == Ant +- 0.5º" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_Gxp34EsCEeyo9tNlqrVFOw" name="Contador ++"/>
+          <subvertex xmi:type="uml:State" xmi:id="_KWpooEsCEeyo9tNlqrVFOw" name="Contador=0"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_CDjUkEsDEeyo9tNlqrVFOw" name="Cont == 20" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="___56cEsFEeyo9tNlqrVFOw" name="Establece Consigna"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_-FIk8EsHEeyo9tNlqrVFOw" name="Establece Consigna"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_FhK4sEsIEeyo9tNlqrVFOw" name=""/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_aSJNQEsIEeyo9tNlqrVFOw" name=""/>
+          <subvertex xmi:type="uml:FinalState" xmi:id="_hPINgEsIEeyo9tNlqrVFOw" name=""/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_2t3nAEsIEeyo9tNlqrVFOw" name=""/>
+          <subvertex xmi:type="uml:State" xmi:id="_-rfk4EsIEeyo9tNlqrVFOw" name="Leer Temp Ext"/>
+          <subvertex xmi:type="uml:State" xmi:id="_QlK8MEsJEeyo9tNlqrVFOw" name="Leer Temp Int"/>
+          <subvertex xmi:type="uml:State" xmi:id="_Sk6mYEsJEeyo9tNlqrVFOw" name="Leer Humedad"/>
+          <subvertex xmi:type="uml:State" xmi:id="_UPlYcEsJEeyo9tNlqrVFOw" name="Leer Luminosidad"/>
+          <subvertex xmi:type="uml:State" xmi:id="_NoO0gEsKEeyo9tNlqrVFOw" name="Monitorización"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_Qi8csEsLEeyo9tNlqrVFOw" name=""/>
+          <subvertex xmi:type="uml:State" xmi:id="_uh6x4EsLEeyo9tNlqrVFOw" name="Calculo Valor Dial 4 ultimas lecturas"/>
+          <subvertex xmi:type="uml:State" xmi:id="_-ClqcEsLEeyo9tNlqrVFOw" name="Mostrar Consigna"/>
+          <subvertex xmi:type="uml:State" xmi:id="_DZUekEsMEeyo9tNlqrVFOw" name="Mostrar Valores Ambientales"/>
+          <subvertex xmi:type="uml:State" xmi:id="_BnjwkEsNEeyo9tNlqrVFOw" name="Mostrar Estado de sistema de control apagado"/>
+          <subvertex xmi:type="uml:State" xmi:id="_J5R5sEsOEeyo9tNlqrVFOw" name="Calcular Error"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_Lfu6IEsOEeyo9tNlqrVFOw" name=""/>
+          <subvertex xmi:type="uml:State" xmi:id="_awJJIEsOEeyo9tNlqrVFOw" name="Encender Ventilador PWM"/>
+          <subvertex xmi:type="uml:State" xmi:id="_dzBrUEsOEeyo9tNlqrVFOw" name="Controlar Polaridad Peltier"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_tJJgwEsOEeyo9tNlqrVFOw" name="Potenc. > 3v " kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_67TCAEsOEeyo9tNlqrVFOw" name="Apagado Sistema de Control Temp"/>
         </region>
       </ownedBehavior>
     </packagedElement>
