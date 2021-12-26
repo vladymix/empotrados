@@ -21,27 +21,8 @@ void interrupt interruption(void) //Interrupcion que saca el contenido por puert
     if (INTCONbits.T0IF)
     {
         TMR0 = 165; //Espera de 50 ms
-        if (CCPR2L == 255)
-        {
-            if (inverFlag == 0)
-            {
-                inverFlag = 1;
-            }
-            else
-            {
-                inverFlag = 0;
-            }
-        }
-        
-        if (inverFlag == 0)
-        {
-            CCPR2L++;
-        }
-        else
-        {
-            CCPR2L--;
-        }
-
+        //Se realizará una cuenta sobre interruptNum, y cuando se cumplan las esperas se activarán los flags necessarios
+        //Para que se realicen las acciones correspondientes.
         INTCONbits.T0IF = 0;
     }
 
@@ -132,6 +113,7 @@ void init_uart(void)
 
 void setdutyCycle0(int dc)
 {
+    
 }
 
 // TODO Revisar esto
@@ -144,11 +126,23 @@ void setdutyCycle1(int dc)
 
 
 void ShowDataToMonitor(){
-    //
+    //funcion que pasa la información al display
+    //Comprobará si está activado el flag para pasar la información al display
+    //En caso de que esté activado el flag, se procederá a llenar las variables necesarias
+    //para que el sistema transmita la información al display
+    //La información saldrá de las distintasvariables habilitadas para los distintos datos
+}
+//función que añade el dato de temperatura actual al array entre 0-3 
+void CheckTempDial(){
+    //Se comprueba si el flag correspondiente se ha actuvado
+    //Si es así, se pasará a realizar la lectura del dial y a guardar dicho dato
+    //en el array de 4 posiciones habilitado para guardar las 4 últimas lecturas.
 }
 
-void CheckTempDial(){
-    //Se añade al array entre 0-3 
+void CheckDataFromHW1(){
+    //Realizará una actualización de los datos datos por HW1
+    //para ello se tendrá que utilizar el DAC
+    //Se hará una función para cada conversión (?)
 }
 
 int main()
@@ -172,6 +166,7 @@ int main()
     {
         ShowDataToMonitor();//Se actualizará cada 1s. con los datos medios del último segundo
         CheckTempDial(); //Se verifica el dial de temperatura cada 0.25s|guardar últimos 4 datos en array
+        CheckDataFromHW1();//Se leen los valores que provienen de HW1
         
         while (dataADReady)
         {
